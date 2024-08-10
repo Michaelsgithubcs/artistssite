@@ -1,0 +1,433 @@
+/* General styles for the body and HTML */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Japanese3017', sans-serif; /* Use the custom font */
+    background-color: red; /* Background color for the body */
+    color: black; /* Default text color */
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* General styles for the gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px; /* Space between images */
+    padding: 20px; /* Padding around the gallery */
+    max-width: 1200px; /* Max width for better responsiveness */
+    margin: 0 auto; /* Center the gallery */
+}
+
+/* Style for each gallery item */
+.gallery-item {
+    overflow: hidden; /* Ensure no overflow of images */
+    position: relative; /* For overlay effects */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Apply styles specifically for the About Us page */
+.about-us-page .about-us {
+    padding: 20px;
+    text-align: left;
+}
+
+.about-us-page .about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.about-us-page .about-left,
+.about-us-page .about-right {
+    width: 48%;
+}
+
+.about-us-page .about-title {
+    color: white; /* Title color */
+    font-size: 24px; /* Title size */
+}
+
+.about-us-page .about-text {
+    color: black; /* Text color */
+    font-size: 16px; /* Text size */
+}
+
+.about-us-page .highlight {
+    color: yellow; /* Highlight color */
+}
+
+/* Footer specific styles */
+.about-us-page .footer {
+    background-color: black;
+    color: yellow;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-us-page .footer h3 {
+    color: white; /* Title color in the footer */
+}
+
+.about-us-page .footer a {
+    color: yellow; /* Link color in the footer */
+}
+
+/* Define the font faces */
+@font-face {
+    font-family: 'Japanese3017';
+    src: url('fonts/Japanese3017-Eljn.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Japanese3017-Xv8g';
+    src: url('fonts/Japanese3017-Xv8g.ttf') format('truetype');
+}
+
+/* Define the font face for MouldyCheeseRegular */
+@font-face {
+    font-family: 'MouldyCheeseRegular';
+    src: url('fonts/MouldyCheeseRegular-WyMWG.ttf') format('truetype');
+}
+
+/* Apply the font to the title */
+.title {
+    font-family: 'Japanese3017', Arial, sans-serif; /* Apply the custom font */
+    color: yellow;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; /* Black outline effect */
+    font-size: 48px; /* Adjust size as needed */
+    text-align: center; /* Center align the text */
+    margin: 20px 0; /* Space around the title */
+    position: relative; /* For positioning the reflection effect */
+}
+
+/* Reflection effect */
+.title::after {
+    content: attr(data-text); /* Mirror text */
+    color: rgba(255, 255, 0, 0.5); /* Light yellow for the reflection */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: scaleY(-1); /* Flip the text vertically */
+    transform-origin: top; /* Origin for the flip */
+    opacity: 0.5; /* Semi-transparent reflection */
+    filter: blur(1px); /* Blur effect for the reflection */
+}
+
+/* Styles for the menu icon (hamburger icon) */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001; /* Ensure the menu icon is above other elements */
+}
+
+/* Styles for the side navigation */
+.side-nav {
+    height: 100%;
+    width: 0; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: red; /* Match body background color */
+    overflow: hidden; /* Prevent scrolling */
+    transition: 0.5s; /* Smooth transition for opening and closing */
+    padding-top: 20px; /* Space for the logo and padding */
+    border-right: 2px solid black;
+    z-index: 1000; /* Slightly lower than menu icon */
+}
+
+/* Styles for the logo inside the side navigation */
+.side-nav-logo {
+    display: flex;
+    justify-content: center; /* Center the logo horizontally */
+    margin: 20px 0; /* Space around the logo */
+}
+
+.side-nav-logo img {
+    max-width: 200px; /* Increased width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for the logo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a 3D effect */
+}
+
+/* Ensure the side-nav content fits without scrolling */
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Center align the list items */
+    height: calc(100% - 60px); /* Adjust height to fit the visible area */
+    overflow: hidden; /* Prevent scrolling within the list */
+}
+
+/* Style each menu item */
+.side-nav li {
+    padding: 15px 0; /* Add vertical padding */
+    position: relative; /* For pseudo-element positioning */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+/* Links inside the side navigation */
+.side-nav a {
+    text-decoration: none;
+    color: white; /* White color for better contrast on red background */
+    font-size: 22px; /* Larger font size */
+    display: block;
+    transition: 0.3s; /* Smooth transition for hover effect */
+    position: relative; /* For pseudo-element positioning */
+    padding: 10px; /* Padding around the text */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Hover effect for menu links */
+.side-nav a:hover {
+    background-color: black; /* Dark background on hover */
+    color: yellow; /* Highlight color on hover */
+}
+
+/* Add a stylish effect to each menu item */
+.side-nav a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background: yellow; /* Highlight color */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.side-nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Styles for the "X" close button */
+.nav-header {
+    display: flex;
+    justify-content: space-between; /* Space between logo and close button */
+    align-items: center; /* Center align items vertically */
+    padding: 0 20px; /* Padding inside nav-header */
+}
+
+.close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+/* Header section */
+header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    background: url('assets/your-background-image.jpg') no-repeat center center; /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire header area */
+    height: 400px; /* Adjust height as needed */
+    color: white; /* Text color for visibility on the background */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Logo section */
+.logo-section {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 32px; /* Adjust font size for visibility */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for contrast */
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+/* General section styles */
+section {
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Page-specific title styles */
+.page-title {
+    font-family: 'Japanese3017', sans-serif; /* Use the same font */
+    color: yellow;
+    font-size: 36px; /* Adjust size as needed */
+    text-shadow: 1px 1px 2px black; /* Shadow for reflection effect */
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Apply MouldyCheeseRegular font to the About Us page */
+.about-us-page .about-text {
+    font-family: 'MouldyCheeseRegular', sans-serif; /* Use the custom font for text */
+}
+
+/* Footer specific styles */
+.footer {
+    background-color: black;
+    color: yellow;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer h3 {
+    color: white; /* Title color in the footer */
+}
+
+.footer a {
+    color: #ffff00; /* Link color in the footer */
+}
+
+/* Style for the social media icons */
+.social-media {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    margin: 0 10px; /* Space between icons */
+}
+
+.social-media img {
+    width: 40px; /* Size of the icons */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Style for images */
+.gallery-item img {
+    width: 100%; /* Make images fill their container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below images */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+/* Hover effects for gallery items */
+.gallery-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
+}
+
+/* Media Queries for Mobile Optimization */
+
+/* Mobile styles for the gallery */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets and mobile */
+    }
+
+    .title {
+        font-size: 32px; /* Smaller font size for mobile */
+    }
+
+    .about-us-page .about-content {
+        flex-direction: column; /* Stack content vertically on mobile */
+    }
+
+    .about-us-page .about-left,
+    .about-us-page .about-right {
+        width: 100%; /* Full width for mobile */
+    }
+
+    .side-nav-logo img {
+        max-width: 150px; /* Reduce logo size for mobile */
+    }
+
+    .side-nav a {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
+
+    .footer {
+        padding: 15px; /* Adjust padding for mobile */
+    }
+
+    .footer h3 {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
+
+    .footer a {
+        font-size: 16px; /* Smaller font size for mobile */
+    }
+
+    .menu-icon {
+        font-size: 20px; /* Smaller menu icon for mobile */
+        top: 10px; /* Adjust top position */
+        left: 10px; /* Adjust left position */
+    }
+
+    .page-title {
+        font-size: 28px; /* Smaller page title for mobile */
+    }
+}
+
+/* Extra-small devices (phones, less than 576px) */
+@media (max-width: 576px) {
+    .gallery {
+        grid-template-columns: 1fr; /* Single column for small screens */
+    }
+
+    .title {
+        font-size: 24px; /* Smaller font size for very small screens */
+    }
+
+    .about-us-page .about-content {
+        padding: 10px; /* Adjust padding for small screens */
+    }
+
+    .side-nav {
+        width: 250px; /* Fixed width for small screens */
+    }
+
+    .side-nav-logo img {
+        max-width: 120px; /* Further reduce logo size */
+    }
+
+    .side-nav a {
+        font-size: 16px; /* Further reduce font size */
+    }
+
+    .footer {
+        padding: 10px; /* Further adjust padding */
+    }
+
+    .footer h3 {
+        font-size: 16px; /* Further reduce font size */
+    }
+
+    .footer a {
+        font-size: 14px; /* Further reduce font size */
+    }
+
+    .menu-icon {
+        font-size: 18px; /* Further reduce menu icon size */
+        top: 5px; /* Adjust top position */
+        left: 5px; /* Adjust left position */
+    }
+
+    .page-title {
+        font-size: 22px; /* Further reduce page title size */
+    }
+}
